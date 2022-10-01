@@ -1,17 +1,30 @@
 {
-  "name": "js-express-sequelize-mysql",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "author": "",
-  "license": "ISC",
-  "dependencies": {
-    "cors": "^2.8.5",
-    "express": "^4.18.1",
-    "mysql2": "^2.3.3",
-    "sequelize": "^6.23.2"
-  }
+	"name": "js-express-sequelize-mysql",
+	"version": "1.0.0",
+	"description": "",
+	"main": "index.js",
+	"scripts": {
+		"start-dev": "nodemon server.js",
+		"model:generate": "npx sequelize-cli model:generate --name User --attributes firstName:string,lastName:string,email:string",
+		"migrate:generate": "npx sequelize-cli migration:generate --name migration-skeleton",
+		"migrate:up": "npx sequelize-cli db:migrate",
+		"migrate:undo": "npx sequelize-cli db:migrate:undo",
+		"seed:generate": "npx sequelize-cli seed:generate --name demo-user",
+		"seed:all": "npx sequelize-cli db:seed:all",
+		"seed:undo": "npx sequelize-cli db:seed:undo",
+		"seed:undo:all": "npx sequelize-cli db:seed:undo:all"
+	},
+	"author": "",
+	"license": "ISC",
+	"dependencies": {
+		"cors": "^2.8.5",
+		"dotenv": "^16.0.3",
+		"express": "^4.18.1",
+		"mysql2": "^2.3.3",
+		"nodemon": "^2.0.20",
+		"sequelize": "^6.23.2"
+	},
+	"devDependencies": {
+		"sequelize-cli": "^6.5.1"
+	}
 }
